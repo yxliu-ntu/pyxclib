@@ -95,6 +95,7 @@ def _get_topk(X, pad_indx=0, k=5):
             )
             indices = np.argsort(_scores, axis=-1)
             indices = np.take_along_axis(_indices, indices, axis=1)
+            indices = np.flip(indices, axis=1)
     elif type(X) == dict:
         indices = X['indices']
         scores = X['scores']
